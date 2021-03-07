@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Prevent default example</title>
+    <style>
+      div {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <form >
+		What is your first name: <input type="text" value="" id="fname"><br><br>
+		<p id="pvalid"></p>
+		What is your last name: <input type="text" value="" id="lname"><br><br>
+		<p id="lnameval"></p>
+		What is your e-mail: <input type="email" value="" id="email"><br><br>
+		<p id="emailval"></p>
+		Message: <textarea rows="10" cols="100" class="form-control" id="message" name="message" placeholder="Write a message here" tabindex="4"></textarea><br><br>
+    <p id="messageval"></p>
+    <p id="finalMess"></p>
+    <!--Type doit etre egale a button tu dois faire des id et non pas des classes-->
+		<input type="button" value="Done" onclick="valForm();">
+	  
+	  
+	  </form>
+    <script>
+		function valForm() {
+      //ici tu dois faire des innerText et non pas des innerHtml
+			var fName = document.getElementById('fname').value;
+			var lName = document.getElementById('lname').value;
+			var eMail = document.getElementById('email').value;
+			var mess = document.getElementById('message').value;
+      var m1="Thank you, your form has been submitted.";
+      var m2="This field has an error";
+				if(fName.length > 2) {
+			//	document.getElementById('pvalid').innerText=m1;
+
+			} else {
+        document.getElementById('pvalid').innerText=m2;
+
+			}
+      
+      if(lName.length > 2) {
+
+				//document.getElementById('lnameval').innerText=m1;
+			} else {
+        document.getElementById('lnameval').innerText=m2;
+			}
+      if(eMail.length > 2) {
+				//document.getElementById('emailval').innerText=m1;
+			} else {
+        document.getElementById('emailval').innerText=m2;
+			}
+			if(mess.length > 2) {
+        //document.getElementById('messageval').innerText=m1;
+			} else {
+				document.getElementById('messageval').innerText=m2;
+			}
+      if(fName.length > 2 && lName.length > 2 && eMail.length > 2 && mess.length > 2)
+      {
+        alert("Bravo!");
+      }
+    }
+    </script>
+  </body>
